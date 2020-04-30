@@ -1,0 +1,108 @@
+{
+  "PUNCTUATION": {
+    "dozens": "-",
+    "hundreds": ""
+  },
+  
+  "LESS_THAN_TWENTY": [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen"
+  ],
+
+  "DOZENS": [
+    "zero",
+    "ten",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety"
+  ],
+
+  "HUNDREDS": {
+    "1": {
+      "singular": "one hundred",
+      "plural": "one hundred"
+    },
+    "2": {
+      "singular": "two hundred",
+      "plural": "two hundred"
+    },
+    "3": {
+      "singular": "three hundred",
+      "plural": "three hundred"
+    },
+    "4": {
+      "singular": "four hundred",
+      "plural": "four hundred"
+    },
+    "5": {
+      "singular": "five hundred",
+      "plural": "five hundred"
+    },
+    "6": {
+      "singular": "six hundred",
+      "plural": "six hundred"
+    },
+    "7": {
+      "singular": "seven hundred",
+      "plural": "seven hundred"
+    },
+    "8": {
+      "singular": "eight hundred",
+      "plural": "eight hundred"
+    },
+    "9": {
+      "singular": "nine hundred",
+      "plural": "nine hundred"
+    }
+  },
+
+  "SHORT_SCALE_NAME": {
+    "hundred": {
+      "singular": "hundred",
+      "plural": "hundred"
+    },
+    "thousand": {
+      "singular": "thousand",
+      "plural": "thousand"
+    },
+    "million": {
+      "singular": "million",
+      "plural": "million"
+    },
+    "billion": {
+      "singular": "billion",
+      "plural": "billion"
+    },
+    "trillion": {
+      "singular": "trillion",
+      "plural": "trillion"
+    },
+    "quadrillion": {
+      "singular": "quadrillion",
+      "plural": "quadrillion"
+    }
+  }
+}

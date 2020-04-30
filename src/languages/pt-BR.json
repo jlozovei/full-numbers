@@ -1,0 +1,108 @@
+{
+  "PUNCTUATION": {
+    "dozens": " e ",
+    "hundreds": " e"
+  },
+
+  "LESS_THAN_TWENTY": [
+    "zero",
+    "um",
+    "dois",
+    "três",
+    "quatro",
+    "cinco",
+    "seis",
+    "sete",
+    "oito",
+    "nove",
+    "dez",
+    "onze",
+    "doze",
+    "treze",
+    "catorze",
+    "quinze",
+    "dezesseis",
+    "dezessete",
+    "dezoito",
+    "dezenove"
+  ],
+
+  "DOZENS": [
+    "zero",
+    "dez",
+    "vinte",
+    "trinta",
+    "quarenta",
+    "cinquenta",
+    "sessenta",
+    "setenta",
+    "oitenta",
+    "noventa"
+  ],
+
+  "HUNDREDS": {
+    "1": {
+      "singular": "cem",
+      "plural": "cento"
+    },
+    "2": {
+      "singular": "duzentos",
+      "plural": "duzentos"
+    },
+    "3": {
+      "singular": "trezentos",
+      "plural": "trezentos"
+    },
+    "4": {
+      "singular": "quatrocentos",
+      "plural": "quatrocentos"
+    },
+    "5": {
+      "singular": "quinhentos",
+      "plural": "quinhentos"
+    },
+    "6": {
+      "singular": "seiscentos",
+      "plural": "seiscentos"
+    },
+    "7": {
+      "singular": "setecentos",
+      "plural": "setecentos"
+    },
+    "8": {
+      "singular": "oitocentos",
+      "plural": "oitocentos"
+    },
+    "9": {
+      "singular": "novecentos",
+      "plural": "novecentos"
+    }
+  },
+
+  "SHORT_SCALE_NAME": {
+    "hundred": {
+      "singular": "",
+      "plural": ""
+    },
+    "thousand": {
+      "singular": "mil",
+      "plural": "mil"
+    },
+    "million": {
+      "singular": "milhão",
+      "plural": "milhões"
+    },
+    "billion": {
+      "singular": "bilhão",
+      "plural": "bilhões"
+    },
+    "trillion": {
+      "singular": "trilhão",
+      "plural": "trilhões"
+    },
+    "quadrillion": {
+      "singular": "quadrilhão",
+      "plural": "quadrilhões"
+    }
+  }
+}

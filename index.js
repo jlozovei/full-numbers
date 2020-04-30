@@ -1,6 +1,6 @@
 import convert from './src/convert';
 
-const numbersToWords = (params) => {
+const fullNumbers = (params) => {
   const isObj = typeof params === 'object';
   const value = isObj ? params.value : params;
   const hasCurrencyObj = isObj && params.hasOwnProperty('currency');
@@ -15,4 +15,4 @@ const numbersToWords = (params) => {
   return convert(options);
 };
 
-export default numbersToWords;
+export default fullNumbers;

@@ -18,20 +18,20 @@ After that, import the helper wherever you want to use it:
 
 ```js
 // es-modules
-import numbersToWords from 'full-numbers';
+import fullNumbers from 'full-numbers';
 
 // commonjs
-const numbersToWords = require('full-numbers');
+const fullNumbers = require('full-numbers');
 ```
 
 Then, you'll be able to use it:
 
 ```js
-const words = numbersToWords(1234); // "one thousand, two hundred thirty-four"
+const words = fullNumbers(1234); // "one thousand, two hundred thirty-four"
 
 // or
 
-const words = numbersToWords({
+const words = fullNumbers({
   value: 1234,
   lang: 'pt-BR',
 }); // "um mil, duzentos e trinta e quatro"

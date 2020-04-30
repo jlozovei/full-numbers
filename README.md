@@ -1,8 +1,47 @@
 # numbers-to-words
-A nice JS package to convert numbers to words.
+A nice JS package to convert numbers to words. :zero: :arrow_right: :abc:  
+Multilanguage support! :tada:
 
 
 ## :closed_book: Usage
+First things first - install the package using `npm` or `yarn`:
+
+```bash
+# using npm
+npm i numbers-to-words
+
+# using yarn
+yarn add numbers-to-words
+```
+
+After that, import the helper wherever you want to use it:
+
+```js
+// es-modules
+import numbersToWords from 'numbers-to-words';
+
+// commonjs
+const numbersToWords = require('numbers-to-words');
+```
+
+Then, you'll be able to use it:
+
+```js
+const words = numbersToWords(1234); // "one thousand, two hundred thirty-four"
+
+// or
+
+const words = numbersToWords({
+  value: 1234,
+  lang: 'pt-BR',
+}); // "um mil, duzentos e trinta e quatro"
+```
+
+### Avaliable Options
+| Name           | Type           | Description         | Example |
+| -------------- | -------------- | ------------------- | ------- |
+| `value`        | number         | The value           | `123`   |
+| `lang`         | string         | The output language | `pt-BR` |
 
 
 ## :computer: Developing

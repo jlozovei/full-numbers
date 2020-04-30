@@ -1,0 +1,134 @@
+{
+  "name": "numbers-to-words",
+  "version": "0.0.0",
+  "description": "A nice JS package to convert numbers to words.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "postbuild": "cp -R ./src/languages ./dist",
+    "format": "prettier \"{./,tests}/*.js\" --write",
+    "test:dev": "jest",
+    "test": "jest --coverage --watchAll=false",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlozovei/numbers-to-words.git"
+  },
+  "author": "Julio Lozovei <jlozovei@gmail.com> (https://jlozovei.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jlozovei/numbers-to-words/issues"
+  },
+  "homepage": "https://github.com/jlozovei/numbers-to-words#readme",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "converter",
+    "currency",
+    "number",
+    "string",
+    "full numbers",
+    "numbers to words",
+    "currency to words"
+  ],
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "husky": "^4.2.5",
+    "jest": "^25.5.1",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/register": "^7.9.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "rollup": "^2.7.3",
+    "rollup-plugin-alias": "^2.2.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run format"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "*.js"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "text",
+      "lcov"
+    ],
+    "coverageDirectory": "./coverage/"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "useTabs": false,
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "alias": {
+            "constants": "./constants",
+            "helpers": "./helpers"
+          }
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2016,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        2
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "prettier/prettier": "error"
+    }
+  }
+}

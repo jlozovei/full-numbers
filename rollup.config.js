@@ -17,6 +17,6 @@ export default {
   output: {
     file: 'dist/index.js',
     format: 'umd',
-    name: 'numbersToWords'
+    name: 'fullNumbers'
   }
 };

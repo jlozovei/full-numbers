@@ -1,5 +1,5 @@
 {
-  "name": "numbers-to-words",
+  "name": "full-numbers",
   "version": "0.0.0",
   "description": "A nice JS package to convert numbers to words.",
   "main": "index.js",
@@ -13,25 +13,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jlozovei/numbers-to-words.git"
+    "url": "git+https://github.com/jlozovei/full-numbers.git"
   },
   "author": "Julio Lozovei <jlozovei@gmail.com> (https://jlozovei.dev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jlozovei/numbers-to-words/issues"
+    "url": "https://github.com/jlozovei/full-numbers/issues"
   },
-  "homepage": "https://github.com/jlozovei/numbers-to-words#readme",
+  "homepage": "https://github.com/jlozovei/full-numbers#readme",
   "files": [
     "dist"
   ],
   "keywords": [
     "converter",
-    "currency",
     "number",
     "string",
     "full numbers",
-    "numbers to words",
-    "currency to words"
+    "numbers in full",
+    "numbers to words"
   ],
   "devDependencies": {
     "eslint": "^6.8.0",

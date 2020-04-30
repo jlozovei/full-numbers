@@ -1,4 +1,4 @@
-# numbers-to-words
+# full-numbers
 A nice JS package to convert numbers to words. :zero: :arrow_right: :abc:  
 Multilanguage support! :tada:
 
@@ -8,20 +8,20 @@ First things first - install the package using `npm` or `yarn`:
 
 ```bash
 # using npm
-npm i numbers-to-words
+npm i full-numbers
 
 # using yarn
-yarn add numbers-to-words
+yarn add full-numbers
 ```
 
 After that, import the helper wherever you want to use it:
 
 ```js
 // es-modules
-import numbersToWords from 'numbers-to-words';
+import numbersToWords from 'full-numbers';
 
 // commonjs
-const numbersToWords = require('numbers-to-words');
+const numbersToWords = require('full-numbers');
 ```
 
 Then, you'll be able to use it:
@@ -47,8 +47,8 @@ const words = numbersToWords({
 ## :computer: Developing
 First, fork the project. After it, install the dependencies (preferably using [npm](https://npmjs.com/) - since the project is using it) and do the work.
 
-Also, take a look at the [contributing guide](https://github.com/jlozovei/numbers-to-words/blob/master/.github/CONTRIBUTING.md)!
+Also, take a look at the [contributing guide](https://github.com/jlozovei/full-numbers/blob/master/.github/CONTRIBUTING.md)!
 
 
 ## :closed_lock_with_key: License
-Licensed under the [MIT](https://github.com/jlozovei/numbers-to-words/blob/master/LICENSE).
+Licensed under the [MIT](https://github.com/jlozovei/full-numbers/blob/master/LICENSE).

@@ -15,6 +15,18 @@ const convert = (params) => {
     throw new RangeError('Input is not a safe number, it’s either too large or too small.');
   }
 
+  try {
+    const locale = require(`./languages/${lang}.json`);
+  } catch (err) {
+    throw new ReferenceError(`
+      The language you provided can't be found.
+      Check the avaliable languages at:
+      https://github.com/jlozovei/full-numbers/tree/master/src/languages.
+
+      Either provide a supported language or remove the "lang" attribute to use english as default.
+    `);
+  }
+
   return generateWords(num, lang);
 };
 

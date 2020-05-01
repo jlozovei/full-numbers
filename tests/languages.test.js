@@ -27,6 +27,24 @@ test('Write a dozen above 20 in portuguese', () => {
   expect(words).toBe('sessenta e oito');
 });
 
+test('Write a hundrer on singular in portuguese', () => {
+  const options = {
+    value: 100,
+    lang: 'pt-BR'
+  };
+  const words = numbersToWords(options);
+  expect(words).toBe('cem');
+});
+
+test('Write a hundrer on plural in portuguese', () => {
+  const options = {
+    value: 120,
+    lang: 'pt-BR'
+  };
+  const words = numbersToWords(options);
+  expect(words).toBe('cento e vinte');
+});
+
 test('Write a hundred in portuguese', () => {
   const options = {
     value: 1234,

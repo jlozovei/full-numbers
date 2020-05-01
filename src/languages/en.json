@@ -1,7 +1,8 @@
 {
   "PUNCTUATION": {
     "dozens": "-",
-    "hundreds": ""
+    "hundreds": "and",
+    "decimals": "with"
   },
   
   "LESS_THAN_TWENTY": [

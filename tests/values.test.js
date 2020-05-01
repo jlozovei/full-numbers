@@ -17,7 +17,7 @@ test('Write a dozen above 20', () => {
 
 test('Write a hundred', () => {
   const words = numbersToWords(320);
-  expect(words).toBe('three hundred twenty');
+  expect(words).toBe('three hundred and twenty');
 });
 
 test('Write a million', () => {

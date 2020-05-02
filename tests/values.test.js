@@ -22,5 +22,5 @@ test('Write a hundred', () => {
 
 test('Write a million', () => {
   const words = numbersToWords(4520350);
-  expect(words).toBe('four million, five hundred twenty thousand, three hundred fifty');
+  expect(words).toBe('four million, five hundred and twenty thousand, three hundred and fifty');
 });

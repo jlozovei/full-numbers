@@ -1,6 +1,6 @@
 {
   "name": "full-numbers",
-  "version": "0.0.3",
+  "version": "0.0.0-development",
   "description": "A nice JS package to convert numbers to words.",
   "main": "dist/index.js",
   "scripts": {
@@ -30,7 +30,8 @@
     "string",
     "full numbers",
     "numbers in full",
-    "numbers to words"
+    "numbers to words",
+    "currency to words"
   ],
   "devDependencies": {
     "@babel/core": "^7.9.6",

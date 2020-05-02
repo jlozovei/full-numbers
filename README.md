@@ -3,6 +3,9 @@ A nice JS package to convert numbers to words. :zero: :arrow_right: :abc:
 
 :tada: Multilanguage and currency support :tada:
 
+[![codecov](https://codecov.io/gh/jlozovei/full-numbers/branch/master/graph/badge.svg)](https://codecov.io/gh/jlozovei/full-numbers)
+![Release](https://github.com/jlozovei/full-numbers/workflows/Release/badge.svg?branch=master)
+
 
 ## :closed_book: Usage
 First things first - install the package using `npm` or `yarn`:

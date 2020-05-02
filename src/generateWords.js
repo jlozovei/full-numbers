@@ -1,29 +1,34 @@
+import isFloat from './helpers/isFloat';
+import getDecimals from './helpers/getDecimals';
+import padNumber from './helpers/padNumber';
+
 import { scale } from './constants/index';
+
+const state = {};
 
 function floor(expression) {
   return Math.floor(expression);
 }
 
-function generateWords(number, lang, lastWords) {
+function wordify(number, lastWords) {
   let word = '';
   let words = lastWords;
   let remainder = 0;
 
-  const locale = require(`./languages/${lang}.json`);
-
-  if (number === 0) return !words ? locale.LESS_THAN_TWENTY[0] : words.join(' ').replace(/,$/, '');
+  if (number === 0)
+    return !words ? state.locale.LESS_THAN_TWENTY[0] : words.join(' ').replace(/,$/, '');
 
   if (!words) words = [];
 
   if (number < scale.TWENTY) {
-    word = locale.LESS_THAN_TWENTY[number];
+    word = state.locale.LESS_THAN_TWENTY[number];
   } else {
     if (number < scale.ONE_HUNDRED) {
       remainder = number % scale.TEN;
-      word = locale.DOZENS[floor(number / scale.TEN)];
+      word = state.locale.DOZENS[floor(number / scale.TEN)];
 
       if (remainder) {
-        word += `${locale.PUNCTUATION.dozens}${locale.LESS_THAN_TWENTY[remainder]}`;
+        word += `${state.locale.PUNCTUATION.dozens}${state.locale.LESS_THAN_TWENTY[remainder]}`;
         remainder = 0;
       }
     } else if (number < scale.ONE_THOUSAND) {
@@ -31,71 +36,71 @@ function generateWords(number, lang, lastWords) {
       remainder = number % scale.ONE_HUNDRED;
 
       if (remainder) {
-        word = `${locale.HUNDREDS[factor].plural} ${locale.PUNCTUATION.hundreds}`;
+        word = `${state.locale.HUNDREDS[factor].plural} ${state.locale.PUNCTUATION.hundreds}`;
       } else {
-        word = locale.HUNDREDS[factor].singular;
+        word = state.locale.HUNDREDS[factor].singular;
       }
     } else if (number < scale.ONE_MILLION) {
       const factor = floor(number / scale.ONE_THOUSAND);
       remainder = number % scale.ONE_THOUSAND;
-      word = `${generateWords(floor(number / scale.ONE_THOUSAND), lang)} `;
+      word = `${wordify(floor(number / scale.ONE_THOUSAND))} `;
 
       if (remainder) {
-        word += locale.SHORT_SCALE_NAME.thousand.plural;
+        word += state.locale.SHORT_SCALE_NAME.thousand.plural;
       } else {
-        word += locale.SHORT_SCALE_NAME.thousand.singular;
+        word += state.locale.SHORT_SCALE_NAME.thousand.singular;
       }
 
       if ((remainder / scale.TEN) % scale.TEN === 0) {
-        word += ` ${locale.PUNCTUATION.hundreds}`;
+        word += ` ${state.locale.PUNCTUATION.hundreds}`;
       } else {
         word += ',';
       }
     } else if (number < scale.ONE_BILLION) {
       const factor = floor(number / scale.ONE_MILLION);
       remainder = number % scale.ONE_MILLION;
-      word = `${generateWords(floor(number / scale.ONE_MILLION), lang)} `;
+      word = `${wordify(floor(number / scale.ONE_MILLION))} `;
 
       if (remainder) {
-        word += locale.SHORT_SCALE_NAME.million.plural;
+        word += state.locale.SHORT_SCALE_NAME.million.plural;
       } else {
-        word += locale.SHORT_SCALE_NAME.million.singular;
+        word += state.locale.SHORT_SCALE_NAME.million.singular;
       }
 
       word += ',';
     } else if (number < scale.ONE_TRILLION) {
       const factor = floor(number / scale.ONE_BILLION);
       remainder = number % scale.ONE_BILLION;
-      word = `${generateWords(floor(number / scale.ONE_BILLION), lang)} `;
+      word = `${wordify(floor(number / scale.ONE_BILLION))} `;
 
       if (remainder) {
-        word += locale.SHORT_SCALE_NAME.billion.plural;
+        word += state.locale.SHORT_SCALE_NAME.billion.plural;
       } else {
-        word += locale.SHORT_SCALE_NAME.billion.singular;
+        word += state.locale.SHORT_SCALE_NAME.billion.singular;
       }
 
       word += ',';
     } else if (number < scale.ONE_QUADRILLION) {
       const factor = floor(number / scale.ONE_TRILLION);
       remainder = number % scale.ONE_TRILLION;
-      word = `${generateWords(floor(number / scale.ONE_TRILLION), lang)} `;
+      word = `${wordify(floor(number / scale.ONE_TRILLION))} `;
 
       if (remainder) {
-        word += locale.SHORT_SCALE_NAME.trillion.plural;
+        word += state.locale.SHORT_SCALE_NAME.trillion.plural;
       } else {
-        word += locale.SHORT_SCALE_NAME.trillion.singular;
+        word += state.locale.SHORT_SCALE_NAME.trillion.singular;
       }
 
       word += ',';
     } else if (number <= scale.MAX_NUMBER) {
       const factor = floor(number / scale.ONE_QUADRILLION);
       remainder = number % scale.ONE_QUADRILLION;
-      word = `${generateWords(floor(number / scale.ONE_QUADRILLION), lang)} `;
+      word = `${wordify(floor(number / scale.ONE_QUADRILLION))} `;
 
       if (remainder) {
-        word += locale.SHORT_SCALE_NAME.quadrillion.plural;
+        word += state.locale.SHORT_SCALE_NAME.quadrillion.plural;
       } else {
-        word += locale.SHORT_SCALE_NAME.quadrillion.singular;
+        word += state.locale.SHORT_SCALE_NAME.quadrillion.singular;
       }
 
       word += ',';
@@ -103,7 +108,49 @@ function generateWords(number, lang, lastWords) {
   }
 
   words.push(word);
-  return generateWords(remainder, lang, words);
+  return wordify(remainder, words);
 }
 
-export default generateWords;
+export default function generateWords(options) {
+  const { value, lang, currency } = options;
+  const hasDecimalValues = isFloat(value);
+
+  const locale = require(`./languages/${lang}.json`);
+  state.locale = locale;
+
+  if (currency) {
+    state.currency = currency;
+  }
+
+  if (hasDecimalValues) {
+    const decimals = getDecimals(value, 10);
+    const padded = padNumber(decimals);
+
+    state.decimals = {
+      value: padded,
+      words: wordify(parseInt(padded))
+    };
+  } else {
+    delete state.decimals;
+  }
+
+  const number = parseInt(value, 10);
+  let words = wordify(number);
+
+  if (state.currency) {
+    if (number > 1) words += ` ${state.currency.name.plural}`;
+    else words += ` ${state.currency.name.singular}`;
+
+    if (state.decimals) {
+      words += ` ${state.locale.PUNCTUATION.decimals} ${state.decimals.words}`;
+
+      if (state.decimals.value > 1) {
+        words += ` ${state.currency.decimals.plural}`;
+      } else {
+        words += ` ${state.currency.decimals.singular}`;
+      }
+    }
+  }
+
+  return words;
+}

@@ -48,7 +48,7 @@
     "rollup-plugin-alias": "^2.2.0",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "semantic-release": "^17.2.1"
+    "semantic-release": "^19.0.3"
   },
   "husky": {
     "hooks": {

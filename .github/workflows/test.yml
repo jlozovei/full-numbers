@@ -6,11 +6,11 @@ on:
 jobs:
   test:
     name: Test code
-    runs-on: ubuntu-release
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:

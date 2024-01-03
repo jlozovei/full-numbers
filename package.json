@@ -37,6 +37,8 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^6.13.0",
@@ -51,10 +53,16 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "semantic-release": "^21.0.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run format"
-    }
+  "lint-staged": {
+    "src/**/*.{js,css}": [
+      "npm run format"
+    ],
+    "*.js": "eslint --cache --fix"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "jest": {
     "collectCoverageFrom": [
